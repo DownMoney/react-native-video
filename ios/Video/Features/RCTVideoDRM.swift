@@ -84,12 +84,12 @@ struct RCTVideoDRM {
                 reject(spcError)
             }
             
-            guard let spcData = spcData else {
+            guard let spcData2 = spcData else {
                 reject(RCTVideoErrorHandler.noSPC)
                 return
             }
             
-            fulfill(spcData)
+            fulfill(spcData2)
         }
     }
     
@@ -110,12 +110,12 @@ struct RCTVideoDRM {
                 }
             } catch {}
             
-            guard let certificateData = certificateData else {
+            guard let certificateData2 = certificateData else {
                 reject(RCTVideoErrorHandler.noCertificateData)
                 return
             }
             
-            fulfill(certificateData)
+            fulfill(certificateData2)
         }
     }
     

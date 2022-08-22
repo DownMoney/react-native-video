@@ -421,8 +421,8 @@ class RCTVideo: UIView, RCTVideoPlayerViewControllerDelegate, RCTPlayerObserverH
     func setSeek(_ info:NSDictionary!) {
         let seekTime:NSNumber! = info["time"] as! NSNumber
         let seekTolerance:NSNumber! = info["tolerance"] as! NSNumber
-        let item:AVPlayerItem? = _player?.currentItem
-        guard item != nil, let player = _player, let item = item, item.status == AVPlayerItem.Status.readyToPlay else {
+        let item2:AVPlayerItem? = _player?.currentItem
+        guard item2 != nil, let player = _player, let item = item2, item.status == AVPlayerItem.Status.readyToPlay else {
             _pendingSeek = true
             _pendingSeekTime = seekTime.floatValue
             return
@@ -953,8 +953,8 @@ class RCTVideo: UIView, RCTVideoPlayerViewControllerDelegate, RCTPlayerObserverH
                           "canStepBackward": NSNumber(value: _playerItem.canStepBackward),
                           "canStepForward": NSNumber(value: _playerItem.canStepForward),
                           "naturalSize": [
-                            "width": width != nil ? NSNumber(value: width!) : "undefinded",
-                            "height": width != nil ? NSNumber(value: height!) : "undefinded",
+                            "width": width != nil ? NSNumber(value: width!) : 0,
+                            "height": width != nil ? NSNumber(value: height!) : 0,
                             "orientation": orientation
                           ],
                           "audioTracks": RCTVideoUtils.getAudioTrackInfo(_player),
